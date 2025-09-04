@@ -1,0 +1,134 @@
+{
+  "error_solutions": {
+    "outofmemoryerror": {
+      "description": "Java heap space exhausted",
+      "solutions": [
+        "Increase JVM heap size with -Xmx parameter",
+        "Optimize memory usage in application code",
+        "Check for memory leaks",
+        "Use memory profiling tools"
+      ],
+      "keywords": [
+        "memory",
+        "heap",
+        "oom",
+        "outofmemory"
+      ]
+    },
+    "connection_refused": {
+      "description": "Service not accepting connections",
+      "solutions": [
+        "Check if the service is running",
+        "Verify port is not blocked by firewall",
+        "Check service configuration",
+        "Restart the service if necessary"
+      ],
+      "keywords": [
+        "connection",
+        "refused",
+        "connect",
+        "port"
+      ]
+    },
+    "timeout_error": {
+      "description": "Request or operation timed out",
+      "solutions": [
+        "Increase timeout values in configuration",
+        "Check network connectivity and latency",
+        "Monitor server performance and load",
+        "Optimize slow operations"
+      ],
+      "keywords": [
+        "timeout",
+        "timed",
+        "slow",
+        "latency"
+      ]
+    },
+    "permission_denied": {
+      "description": "Insufficient permissions to access resource",
+      "solutions": [
+        "Check file/directory permissions with ls -la",
+        "Verify user has appropriate access rights",
+        "Use chmod to adjust permissions if needed",
+        "Check SELinux context if applicable"
+      ],
+      "keywords": [
+        "permission",
+        "denied",
+        "access",
+        "forbidden"
+      ]
+    },
+    "disk_space_full": {
+      "description": "No space left on device",
+      "solutions": [
+        "Clean up old log files and temporary files",
+        "Use df -h to check disk usage",
+        "Implement log rotation",
+        "Expand storage or add new disk"
+      ],
+      "keywords": [
+        "disk",
+        "space",
+        "full",
+        "storage"
+      ]
+    },
+    "database_error": {
+      "description": "Database connection or query issues",
+      "solutions": [
+        "Check database service status",
+        "Verify connection parameters",
+        "Check database locks and transactions",
+        "Monitor database performance"
+      ],
+      "keywords": [
+        "database",
+        "db",
+        "sql",
+        "query",
+        "table"
+      ]
+    }
+  },
+  "system_commands": {
+    "memory_check": [
+      "free -h  # Check memory usage",
+      "ps aux --sort=-%mem | head -10  # Top memory consumers",
+      "cat /proc/meminfo  # Detailed memory info"
+    ],
+    "disk_check": [
+      "df -h  # Check disk space",
+      "du -sh /* | sort -rh | head -10  # Large directories",
+      "lsof +L1  # Find deleted files still open"
+    ],
+    "process_check": [
+      "ps aux  # All running processes",
+      "top  # Real-time process monitor",
+      "netstat -tulpn  # Network connections"
+    ],
+    "log_analysis": [
+      "tail -f /var/log/messages  # System messages",
+      "journalctl -f  # Systemd logs",
+      "grep -i error /var/log/*  # Search for errors"
+    ]
+  },
+  "centos_specific": {
+    "firewall": [
+      "sudo firewall-cmd --list-all  # Check firewall rules",
+      "sudo firewall-cmd --permanent --add-port=PORT/tcp  # Open port",
+      "sudo firewall-cmd --reload  # Reload firewall"
+    ],
+    "services": [
+      "sudo systemctl status SERVICE  # Check service status",
+      "sudo systemctl start SERVICE  # Start service",
+      "sudo systemctl enable SERVICE  # Enable on boot"
+    ],
+    "packages": [
+      "sudo yum update  # Update packages",
+      "sudo yum install PACKAGE  # Install package",
+      "yum list installed | grep PACKAGE  # Check if installed"
+    ]
+  }
+}
