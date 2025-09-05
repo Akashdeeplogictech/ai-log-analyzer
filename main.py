@@ -29,7 +29,7 @@ class LogAnalyzerApp:
         self.knowledge_base = KnowledgeBase()
         
     def run(self):
-        st.title("🔍 AI Log Analyzer Assistant")
+        st.title("🔍 Axway AI Log Assistant")
         
         # Sidebar
         with st.sidebar:
@@ -126,7 +126,9 @@ class LogAnalyzerApp:
             with st.chat_message("assistant"):
                 st.markdown("📁 Processing uploaded log file...")
                 analysis_results = self.log_processor.process_file(uploaded_file)
-                st.markdown(f"**Analysis Complete:** {analysis_results['summary']}")
+                st.markdown(f"**Analysis Completed:**")
+                st.markdown(f"**Summary:** {analysis_results['summary']}")
+                st.markdown(f"**Recommendations:** {analysis_results.get('recommendation', 'No recommendations available.')}")
         
         # Chat input
         if prompt := st.chat_input("Ask about your logs or system issues..."):
